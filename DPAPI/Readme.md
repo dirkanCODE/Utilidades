@@ -1,1 +1,25 @@
-Funciones para Cifrar y Descifrar cadenas de texto
+#Funciones para Cifrar y Descifrar cadenas de texto
+
+Puede ser util para manejo de credenciales y acceso a sistemas remotos para ejecución de script con las credenciales con password previamente almacena en fichero.  Estos serían los passo de un ejemplo sencillo:
+
+1.- Ejecutar Powershell ISE con runas del Usuario que luego vaya a ejecutar el script.
+
+2.- Cifrar las Passwords de las credenciales que el script vaya a usar: usuarios de Entornos Previos, PRE, DESA, Usuarios Locales, etc., y guardar cada password en un fichero:
+
+```powershell
+Encrypt-ConUserKey "<password>" | Set-content C:\temp\<UserPwdCifrada>.txt
+```  
+
+3.- Iniciar el Script que se quiera programar obteniendo las passwords de los ficheros guardados y montar las credenciales:
+
+```powershell  
+$PwdCifrada=get-content C:\temp\<UserPwdCifrada>.txt
+$PwdTextoPlano=Decrypt-ConUserKey $PwdCifrada
+$password = ConvertTo-SecureString $PwdTextoPlano -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential ("<username>", $password)
+``` 
+4.- Lanzar los comandos al equipo remoto con las credenciales montadas:
+
+```powershell  
+Invoke-Command -ComputerName COMPUTER -ScriptBlock { <Codigo a ejecutar en equipo remoto> } -Credential $credential
+``` 
