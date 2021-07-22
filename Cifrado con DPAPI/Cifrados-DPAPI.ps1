@@ -57,7 +57,7 @@ Function Descifrado-ConUserKey($texto) {
 
 #Cifrado con cuenta de Maquina y User
 
-Function Cifrado-ConMaquinaUserKey($texto) {
+Function Cifrado-ConMachineUserKey($texto) {
     
     $secureString = ConvertTo-SecureString -String $texto -AsPlainText -Force
     $textoCifrado = ConvertFrom-SecureString -SecureString $SecureString
@@ -66,7 +66,7 @@ Function Cifrado-ConMaquinaUserKey($texto) {
 
 #Descifrado con cuenta de Maquina y User 
 
-Function Descifrado-ConMaquinaUserKey($texto) {
+Function Descifrado-ConMachineUserKey($texto) {
     
     $secureString = ConvertTo-SecureString -String $texto
     $textoDescifrado=[Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR((($secureString))))
