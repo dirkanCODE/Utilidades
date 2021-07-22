@@ -1,6 +1,6 @@
 # Funciones para Cifrar y Descifrar cadenas de texto
 
-Puede ser util para acceso a sistemas remotos mediante ejecución de scripts con credenciales.  Las passwords de los usuarios a utilizar para el acceso a esos sistemas remotos previamente se almacenan en ficheros que solo son accesibles por un usuario determinado, en una máquina determinada o combinando las dos.  
+Puede ser util para acceso a sistemas remotos mediante ejecución de scripts con credenciales.  Las passwords de los usuarios a utilizar, para el acceso a esos sistemas remotos, previamente se almacenan en ficheros que solo son accesibles por un usuario determinado, en una máquina determinada o combinando las dos.  
 
 Estos serían los pasos de un ejemplo sencillo:
 
