@@ -1,6 +1,8 @@
 # Funciones para Cifrar y Descifrar cadenas de texto
 
-Puede ser util para manejo de credenciales y acceso a sistemas remotos para ejecución de script con las credenciales con password previamente almacena en fichero.  Estos serían los passo de un ejemplo sencillo:
+Puede ser util para manejo de credenciales y acceso a sistemas remotos para ejecución de scripts con credenciales.  Las passwords de los usuarios a utilizar para el acceso a esos sistemas remotos previamente se almacenan en ficheros.  
+
+Estos serían los pasos de un ejemplo sencillo:
 
 1.- Ejecutar Powershell ISE con runas del Usuario que luego vaya a ejecutar el script.
 
