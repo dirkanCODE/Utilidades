@@ -1,4 +1,4 @@
-#Funciones para Cifrar y Descifrar cadenas de texto
+# Funciones para Cifrar y Descifrar cadenas de texto
 
 Puede ser util para manejo de credenciales y acceso a sistemas remotos para ejecución de script con las credenciales con password previamente almacena en fichero.  Estos serían los passo de un ejemplo sencillo:
 
