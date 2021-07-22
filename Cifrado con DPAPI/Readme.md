@@ -2,7 +2,7 @@
 
 Puede ser util para acceso a sistemas remotos mediante ejecución de scripts con credenciales.  Las passwords de los usuarios a utilizar, para el acceso a esos sistemas remotos, previamente se almacenan en ficheros que solo son accesibles por un usuario determinado, en una máquina determinada o combinando las dos.  
 
-Estos serían los pasos de un ejemplo sencillo de como almacenar passwords en ficheros solo accesibles por un usuario determinado:
+Estos serían los pasos de un ejemplo sencillo de como almacenar passwords en ficheros solo accesibles por un usuario determinado, y como crear las credenciales y ejecutar remotamente el código con esas credenciales:
 
 1.- Ejecutar Powershell ISE con runas del Usuario que luego vaya a ejecutar el script.
 
