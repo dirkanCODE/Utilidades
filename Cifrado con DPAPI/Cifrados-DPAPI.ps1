@@ -1,4 +1,6 @@
-﻿#Cifrados/Descifrados con DPAPI
+#By: @dirkanSYN -> https://twitter.com/dirkanSYN
+ 
+#Cifrados/Descifrados con DPAPI
 
 #-------------------------------------------------------------------------------------------------------------------------
 
