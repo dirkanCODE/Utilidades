@@ -4,7 +4,7 @@
 
 Get-ADUser -Filter * -Properties LastLogonDate | where {$_.LastLogonDate -le (Get-Date).AddDays(-30)} | sort-object -property lastlogondate -descending | Format-Table -property name, lastlogondate -AutoSize
 
-# Buscar Objetos Modificados en DA entre dos Fechas-Horas
+# Buscar Objetos Modificados en DA entre dos Fechas-Horas.  Analiza OU por OU para que las queries sean más ligeras.
 
 $changeDateStart = New-Object DateTime(2021, 03, 26, 10, 00, 00)
 $changeDateEnd = New-Object DateTime(2021, 03, 26, 16, 00, 00)
