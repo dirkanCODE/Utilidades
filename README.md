@@ -5,4 +5,4 @@ Colección de Scripts utiles para múltiples cometidos...
 
 **Scripts DA:** Scripts utilies para manejar objetos de Directorio Activo. 
 
-**POO:** Descripción de Modificadores en POO. 
+**POO:** Información útil para POO. 
