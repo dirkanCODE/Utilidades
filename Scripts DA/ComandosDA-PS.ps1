@@ -20,3 +20,33 @@ foreach ($ou in $OUs)
     -Properties distinguishedname,whenchanged -server <DC> | select distinguishedname,whenchanged
 
 }
+
+# Chequear Resolucion DNS con bucle de intentos de resolución secuenciales.
+
+$ErrorActionPreference="SilentlyContinue"
+
+#Establecer el numero de intentos de resolución en la variable $dnsRequests
+
+$dnsRequests=5
+
+$dnsServers=@("<IP1>","<IP2>","<IP3>","<IP4>")
+$dnsRecord="<DnsRecordToCheck>"
+
+foreach ($dnsServer in $dnsServers)
+{
+    write-host "Dns Server: $dnsServer" -f yellow
+    for ($i=1;$i -le $dnsRequests;$i++)
+    {
+        $mError=$null
+        $a=iex("nslookup $dnsRecord $dnsServer") -errorvariable mError
+        $auxError=[string]$mError.Exception.Message
+        if ((-not ($mError)) -or  ($auxError.contains("Non-authoritative")))
+        {
+            write-host "$i - Sin errores" -f green
+        }
+        else
+        {
+            write-host ("$i - "+$mError.Exception.Message) -f red
+        }
+    }
+}
