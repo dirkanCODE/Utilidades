@@ -51,17 +51,4 @@ foreach ($dnsServer in $dnsServers)
     }
 }
 
-
-
-### Filtro EventViewer
-
-<QueryList>
-  <Query Id="0" Path="Security">
-    <Select Path="Security">*[System[(EventID=4625)]]
-    and
-    *[EventData[(Data='0xC000006D' and Data='<usuario>')]]</Select>
-  </Query>
-</QueryList>
-
-
 ###
