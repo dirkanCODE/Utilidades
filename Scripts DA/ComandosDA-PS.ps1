@@ -51,4 +51,6 @@ foreach ($dnsServer in $dnsServers)
     }
 }
 
-###
+###  Obtener fecha de Expiración Password:  PwdLastSet+Maximum Password Age (in domain GPO)
+
+Get-ADUser –Identity <Usuario> –Properties msDS-UserPasswordExpiryTimeComputed|Select-Object -Property Name, @{Name="ExpiryDate";Expression={[datetime]::FromFileTime($_."msDS-UserPasswordExpiryTimeComputed")}}
