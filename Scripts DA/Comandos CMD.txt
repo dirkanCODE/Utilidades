@@ -1,7 +1,7 @@
-#Comandos para Renovar Password de una relacion de Confianza:
+#Procedimiento para Renovar Password de una relacion de Confianza en ambos extremos:
 
-**Log on to a PDC of Domain A and run this command as Domain A Enterprise Admin user:
+1.- Log on to a PDC of Domain A and run this command as Domain A Enterprise Admin user:
 netdom trust DomainA /domain:DomainB /resetOneSide /passwordT:<Password> /userO:DomainA\EntAdmin /passwordO:*
 
-**Log on to a PDC of Domain B and run this command as Domain B Enterprise Admin user:
+2.- Log on to a PDC of Domain B and run this command as Domain B Enterprise Admin user:
 netdom trust DomainB /domain:DomainA /resetOneSide /passwordT:<Password> /userO:DomainB\EntAdmin /passwordO:*
