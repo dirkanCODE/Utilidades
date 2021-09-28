@@ -5,3 +5,21 @@ netdom trust DomainA /domain:DomainB /resetOneSide /passwordT:<Password> /userO:
 
 2.- Log on to a PDC of Domain B and run this command as Domain B Enterprise Admin user:
 netdom trust DomainB /domain:DomainA /resetOneSide /passwordT:<Password> /userO:DomainB\EntAdmin /passwordO:*
+
+### CERTIFICADOS
+
+Extraer certificado (Clave Publica) de PFX:
+
+openssl.exe pkcs12 -info -in c:\temp\certificado.pfx | openssl.exe x509 -noout -text > c:\temp\certificado.details.txt
+
+Ver el contenido de un certreq CSR:
+
+certutil -Unicode c:\temp\certificadoREQ.csr > c:\temp\certificadoREQ.txt
+
+Extraer Clave Privada de PFX:
+
+openssl pkcs12 -in c:\temp\certificado.pfx -nocerts -out c:\temp\certificado.key
+
+Extraer Certificado (Clave publica) de pfx:
+
+openssl pkcs12 -in c:\temp\certificado.pfx -clcerts -nokeys -out c:\temp\certificado.crt
