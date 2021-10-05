@@ -1,4 +1,4 @@
-### Funciónpara Obtener Tamaño de Ficheros que acepta encadenamiento "pipe" 
+### Funciónpara Obtener Tamaño de Carpetas que acepta encadenamiento "pipe" 
 
 Function Get-FolderSize
 {
