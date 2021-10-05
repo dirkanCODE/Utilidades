@@ -83,6 +83,6 @@ $Cuentas=Get-ADObject -fi {(msDS-AllowedToDelegateTo -like '*') -or (UserAccount
 Foreach ($a in $Cuentas)
 {
     write-host "$($a.distinguishedName);$($a.ObjectClass);$($a.samAccountName);$($a.servicePrincipalName);$($a.DelegationStatus);$($a.AllowedProtocols);$($a.DestinationServices)"
-    write-Output "$($a.distinguishedName);$($a.ObjectClass);$($a.samAccountName);$($a.servicePrincipalName);$($a.DelegationStatus);$($a.AllowedProtocols);$($a.DestinationServices)" | out-file "C:\temp\AccountsES.csv" -append
+    write-Output "$($a.distinguishedName);$($a.ObjectClass);$($a.samAccountName);$($a.servicePrincipalName);$($a.DelegationStatus);$($a.AllowedProtocols);$($a.DestinationServices)" | out-file "C:\temp\Cuentas.csv" -append
 
 }
