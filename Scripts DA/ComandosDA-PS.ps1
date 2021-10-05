@@ -1,4 +1,4 @@
-#By: dirkan (@dirkanSYN) -> https://twitter.com/dirkanSYN
+#By: dirkan (@dirkanNEWS) -> https://twitter.com/dirkanNEWS
 
 ### Obtener usuarios logados en los últimos 30 Días
 
