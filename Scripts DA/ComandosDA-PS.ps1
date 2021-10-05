@@ -59,3 +59,15 @@ foreach ($dnsServer in $dnsServers)
 ###  Obtener fecha de Expiración Password:  PwdLastSet+Maximum Password Age (in domain GPO)
 
 Get-ADUser –Identity <Usuario> –Properties msDS-UserPasswordExpiryTimeComputed | Select-Object -Property Name, @{Name="FechaExpiracion";Expression={[datetime]::FromFileTime($_."msDS-UserPasswordExpiryTimeComputed")}}
+
+### Obtener Relaciones de Confianza Entre Bosques:
+
+$dominios = get-adtrust -filter * -server <DC> | ?{$_.IntraForest -ne 'True' } | Select Name,IntraForest
+foreach ($d in $dominios)
+{
+    $server=$d.name
+    write-host $server -f Yellow
+    $sub=get-adtrust -filter * -server $server | where-object {$_.IntraForest -eq "True" } | select name
+    $sub.name
+}
+
