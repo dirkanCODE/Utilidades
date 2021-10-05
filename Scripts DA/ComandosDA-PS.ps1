@@ -71,3 +71,18 @@ foreach ($d in $dominios)
     $sub.name
 }
 
+### Detectar Delegaciones Kerberos
+
+$AccountsES=Get-ADObject -fi {(msDS-AllowedToDelegateTo -like '*') -or (UserAccountControl -band 0x0080000) -or (UserAccountControl -band 0x1000000)} -properties samAccountName,msDS-AllowedToDelegateTo,servicePrincipalName,userAccountControl -server <DC> | select DistinguishedName,ObjectClass,samAccountName,servicePrincipalName,`
+ @{name='DelegationStatus';expression={if($_.UserAccountControl -band 0x80000){'AllServices'}else{'SpecificServices'}}},
+ @{name='AllowedProtocols';expression={if($_.UserAccountControl -band 0x1000000){'Any'}else{'Kerberos'}}},
+@{name='DestinationServices';expression={$_.'msDS-AllowedToDelegateTo'}}
+
+"DN;ObjectClass;SamAccountNAme;SPN;DelegationStatus;AllowedProtocols;DestionationServices"  | out-file "C:\temp\AccountsES.csv"
+
+Foreach ($a in $AccountsES)
+{
+    write-host "$($a.distinguishedName);$($a.ObjectClass);$($a.samAccountName);$($a.servicePrincipalName);$($a.DelegationStatus);$($a.AllowedProtocols);$($a.DestinationServices)"
+    write-Output "$($a.distinguishedName);$($a.ObjectClass);$($a.samAccountName);$($a.servicePrincipalName);$($a.DelegationStatus);$($a.AllowedProtocols);$($a.DestinationServices)" | out-file "C:\temp\AccountsES.csv" -append
+
+}
