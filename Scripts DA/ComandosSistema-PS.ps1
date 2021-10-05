@@ -1,3 +1,5 @@
+#By: dirkan (@dirkanNEWS) -> https://twitter.com/dirkanNEWS
+
 ### Funciónpara Obtener Tamaño de Carpetas que acepta encadenamiento "pipe" 
 
 Function Get-FolderSize
