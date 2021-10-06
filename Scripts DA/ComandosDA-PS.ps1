@@ -11,18 +11,29 @@ get-adobject -Filter {whenchanged -ge $date} -SearchBase '<Base DN>' -searchscop
 
 ### Buscar Objetos Modificados en DA entre dos Fechas-Horas.  Analiza OU por OU para que las queries sean más ligeras.
 
+$fileSalida="c:\temp\cambios.txt"
 $changeDateStart = New-Object DateTime(2021, 03, 26, 10, 00, 00)
 $changeDateEnd = New-Object DateTime(2021, 03, 26, 16, 00, 00)
 $OUs=Get-ADOrganizationalUnit -Filter 'Name -like "*"' -server <DC> -SearchBase '<Base DN>' -SearchScope SubTree | select DistinguishedName
 $totalOUs=$Ous.Count
 $j=0
+"DN;WhenChanged" | Out-file $fileSalida
 foreach ($ou in $OUs)
 {
     $j++
     write-host ("OU $j/$totalOUs - "+$ou.DistinguishedName) -f green
     
-    Get-ADObject -Filter {(whenchanged -ge $changeDateStart) -and (whenchanged -le $changeDateEnd)} -SearchBase $ou.DistinguishedName `
-    -Properties distinguishedname,whenchanged -server <DC> -SearchScope Onelevel | select distinguishedname,whenchanged
+    $datos=$null
+    $datos=Get-ADObject -Filter {(whenchanged -ge $changeDateStart) -and (whenchanged -le $changeDateEnd)} -SearchBase $ou.DistinguishedName `
+    -Properties distinguishedname,whenchanged -server "<DC>" -SearchScope OneLevel | select distinguishedname,whenchanged
+    if ($datos -ne $null)
+    {
+        foreach ($dato in $datos)
+        {
+            write-host $dato
+            write-output "$($dato.DistinguishedName);$($dato.whenchanged)" | Out-file $fileSalida -append
+        }
+    }
 
 }
 
