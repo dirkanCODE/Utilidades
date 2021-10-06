@@ -22,7 +22,7 @@ foreach ($ou in $OUs)
     write-host ("OU $j/$totalOUs - "+$ou.DistinguishedName) -f green
     
     Get-ADObject -Filter {(whenchanged -ge $changeDateStart) -and (whenchanged -le $changeDateEnd)} -SearchBase $ou.DistinguishedName `
-    -Properties distinguishedname,whenchanged -server <DC> | select distinguishedname,whenchanged
+    -Properties distinguishedname,whenchanged -server <DC> -SearchScope Onelevel | select distinguishedname,whenchanged
 
 }
 
