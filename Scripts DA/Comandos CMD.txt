@@ -23,3 +23,7 @@ openssl pkcs12 -in c:\temp\certificado.pfx -nocerts -out c:\temp\certificado.key
 Extraer Certificado (Clave publica) de pfx:
 
 openssl pkcs12 -in c:\temp\certificado.pfx -clcerts -nokeys -out c:\temp\certificado.crt
+
+Converiter CER a PEM:
+
+openssl x509 -inform DER -in "C:\temp\certificado01.cer" -out "C:\temp\certificado01.pem" -outform PEM
