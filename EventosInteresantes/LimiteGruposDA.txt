@@ -1,0 +1,12 @@
+Log Name:      System
+Source:        LsaSrv
+Event ID:      6035
+Task Category: None
+Level:         Warning
+Keywords:     
+User:          SYSTEM
+Computer:      xxxx
+Description:
+During a logon attempt, the user's security context accumulated too many security IDs. This is a very unusual situation. Remove the user from some global or local groups to reduce the number of security IDs to incorporate into the security context.
+User's SID is Contoso\Usuario10
+If this is the Administrator account, logging on in safe mode will enable Administrator to log on by automatically restricting group memberships.
