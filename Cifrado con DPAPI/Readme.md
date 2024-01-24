@@ -9,7 +9,7 @@ Estos serían los pasos de un ejemplo sencillo de como almacenar passwords en fi
 2.- Cifrar las Passwords de las credenciales que el script vaya a usar: usuarios de Entornos Previos, PRE, DESA, Usuarios Locales, etc., y guardar cada password en un fichero:
 
 ```powershell
-Encrypt-ConUserKey "<password>" | Set-content C:\temp\<UserPwdCifrada>.txt
+Cifrado-ConUserKey "<password>" | Set-content C:\temp\<UserPwdCifrada>.txt
 ```  
 
 3.- Iniciar el Script que se quiera programar obteniendo las passwords de los ficheros guardados y montar las credenciales:
