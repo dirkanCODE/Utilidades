@@ -7,3 +7,14 @@
     *[EventData[(Data='0xC000006D' and Data='<usuario>')]]</Select>
   </Query>
 </QueryList>
+
+### Filtro Avanzado en XML EventViewer - Eventos NTLMv1
+
+<QueryList>
+<Query Id="0" Path="Security">
+<Select Path="Security">*[System[(EventID=4624)]]
+    and 
+*[EventData[Data[@Name='LmPackageName'] and (Data='NTLM V1' or Data='LM')]] 
+</Select>
+</Query>
+</QueryList>
