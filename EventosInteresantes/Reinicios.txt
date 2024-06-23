@@ -1,0 +1,17 @@
+Muestra información interesante:
+Event ID: 6008 (Aviso de Reinicio Inesperado)
+Event ID: 1076 (Información del Error una vez que se inicia sesión)
+Algunos otros eventos de System para trazar reinicios normales:
+
+Event ID: 1074
+
+The process C:\Windows\system32\winlogon.exe (SERVER) has initiated the power off of computer SERVER on behalf of user SERVER\Administrator for the following reason: No title for this reason could be found
+Reason Code: 0x500ff
+Shutdown Type: power off
+Comment:
+
+Event ID: 6006
+The Event log service was stopped.
+
+Event ID: 6005
+The Event log service was started.
